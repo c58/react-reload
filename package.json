@@ -1,0 +1,90 @@
+{
+  "name": "react-reload",
+  "version": "1.0.0",
+  "description": "Yet another declarative data loader for React",
+  "license": "MIT",
+  "repository": "github:c58/react-reload",
+  "bugs": "https://github.com/c58/react-reload/issues",
+  "keywords": [
+    "redux",
+    "react",
+    "declarative",
+    "predictable",
+    "functional",
+    "loader",
+    "fetch"
+  ],
+  "authors": [
+    "Artem Artemev <artem@artemevs.com> (https://github.com/c58)"
+  ],
+  "main": "lib/react-reload.js",
+  "unpkg": "dist/react-reload.js",
+  "module": "es/react-reload.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src"
+  ],
+  "scripts": {
+    "clean": "rimraf lib dist es coverage",
+    "format": "prettier --write \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
+    "format:check": "prettier --list-different \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
+    "lint": "eslint src",
+    "pretest": "npm run build",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test -- --coverage",
+    "build": "rollup -c",
+    "prepare": "npm run clean && npm run format:check && npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/register": "^7.4.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "^3.9.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "flow-bin": "^0.98.1",
+    "flow-typed": "^2.5.2",
+    "glob": "^7.1.4",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-copy": "^2.0.1",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "npmName": "react-reload",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js",
+        "*.js.flow"
+      ]
+    }
+  ],
+  "jest": {
+    "testRegex": "(/src/.*\\.spec\\.js)$"
+  },
+  "sideEffects": false
+}
