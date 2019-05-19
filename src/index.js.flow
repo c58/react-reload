@@ -51,7 +51,8 @@ type CreatorOptions<D, O, A> = (
 type CreateOptions<O> = {
   displayName?: string,
   defaultShouldLoadData?: (?O) => boolean,
-  optionsComparator?: *,
+  optionsComparator?: (a: ?O, b: ?O) => boolean,
+  errorNormalizer?: (error: any) => any,
 }
 
 type DataLoaderResult<D, O, A> = {
