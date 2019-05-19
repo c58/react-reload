@@ -108,6 +108,9 @@
     "github": {
       "release": true
     },
+    "scripts": {
+      "beforeStart": "npm test"
+    },
     "plugins": {
       "@release-it/conventional-changelog": {
         "preset": "angular"
