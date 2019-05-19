@@ -1,0 +1,67 @@
+// @flow
+import { type Consumer } from 'create-react-context'
+
+export type GenericActions<A> = A & {
+  retry: () => Promise<void>,
+}
+
+type DataError = any
+
+export type GenericState<D, O> = {
+  data: ?D,
+  loading: boolean,
+  loadedOnce: boolean,
+  error: ?DataError,
+  rawError: ?Error,
+  options: O,
+}
+
+export type GenericContextValue<D, A, O> = {
+  state: GenericState<D, O>,
+  actions: GenericActions<A>,
+}
+
+type RenderFunc<D, O, A> = (GenericContextValue<D, A, O>) => ?React.Node
+
+export type GenericProps<D, O, A = {}> = {
+  children?: React.Node | RenderFunc<D, O, A>,
+  options?: $Shape<O>,
+  emptyOnUnmount?: boolean,
+  lazyReloadOnMount?: boolean,
+  shouldLoadData?: (?O) => boolean,
+  state?: ?GenericState<D, O>,
+  onStateUpdate?: (GenericState<D, O>) => any,
+}
+
+type PublicState<D, O> = GenericState<D, O> & {
+  setData(?D): void,
+  retry(): void,
+  destroyed: boolean,
+}
+
+type CreatorOptions<D, O, A> = (
+  PublicState<D, O>
+) => {
+  cleanup?: () => void,
+  loader: () => Promise<?D> | ?D,
+  actions?: A,
+}
+
+type CreateOptions<O> = {
+  displayName?: string,
+  defaultShouldLoadData?: (?O) => boolean,
+  optionsComparator?: *,
+}
+
+type DataLoaderResult<D, O, A> = {
+  Loader: Class<React.Component<GenericProps<D, O, A>, any>>,
+  Consumer: Class<Consumer<GenericContextValue<D, A, O>>>,
+  Factory: CreatorOptions<D, O, A>,
+}
+
+declare function createDataLoader<D, O, A>(
+  createParts: CreatorOptions<D, O, A>,
+  createOptions?: CreateOptions<O>
+): DataLoaderResult<D, O, A>;
+
+export default createDataLoader

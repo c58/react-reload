@@ -38,20 +38,32 @@
     "build": "rollup -c",
     "prepare": "npm run clean && npm run format:check && npm run lint && npm test"
   },
+  "dependencies": {
+    "create-react-context": "^0.2.3",
+    "shallow-equal": "^1.1.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
     "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/plugin-transform-flow-strip-types": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-flowtype": "^3.9.0",
@@ -64,14 +76,12 @@
     "glob": "^7.1.4",
     "jest": "^24.8.0",
     "prettier": "^1.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "rimraf": "^2.6.3",
     "rollup": "^1.12.3",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-copy": "^2.0.1",
-    "rollup-plugin-flow": "^1.1.1",
-    "rollup-plugin-node-resolve": "^5.0.0",
-    "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^4.0.4"
+    "rollup-plugin-copy": "^2.0.1"
   },
   "npmName": "react-reload",
   "npmFileMap": [
@@ -84,7 +94,8 @@
     }
   ],
   "jest": {
-    "testRegex": "(/src/.*\\.spec\\.js)$"
+    "testRegex": "(/src/.*\\.spec\\.js)$",
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
   },
   "sideEffects": false
 }
