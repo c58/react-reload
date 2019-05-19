@@ -1,6 +1,6 @@
 {
   "name": "react-reload",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Yet another declarative data loader for React",
   "license": "MIT",
   "repository": "github:c58/react-reload",
@@ -37,7 +37,8 @@
     "test:watch": "npm test -- --watch",
     "test:cov": "npm test -- --coverage",
     "build": "rollup -c",
-    "prepare": "npm run clean && npm run format:check && npm run lint && npm test"
+    "prepare": "npm run clean && npm run format:check && npm run lint && npm test",
+    "release": "release-it"
   },
   "dependencies": {
     "create-react-context": "^0.2.3",
@@ -59,6 +60,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
+    "@release-it/conventional-changelog": "^1.0.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
@@ -79,6 +81,7 @@
     "prettier": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "release-it": "^12.2.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.12.3",
     "rollup-plugin-babel": "^4.3.2",
@@ -100,5 +103,15 @@
       "<rootDir>/jest.setup.js"
     ]
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  }
 }
