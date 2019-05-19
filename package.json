@@ -31,6 +31,7 @@
     "format": "prettier --write \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
     "format:check": "prettier --list-different \"{src,test}/**/*.{js,ts}\" \"**/*.md\"",
     "lint": "eslint src",
+    "flow": "flow check --max-warnings 0",
     "pretest": "npm run build",
     "test": "jest",
     "test:watch": "npm test -- --watch",
@@ -40,7 +41,7 @@
   },
   "dependencies": {
     "create-react-context": "^0.2.3",
-    "shallow-equal": "^1.1.0"
+    "shallowequal": "^1.1.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0"
@@ -95,7 +96,9 @@
   ],
   "jest": {
     "testRegex": "(/src/.*\\.spec\\.js)$",
-    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
   "sideEffects": false
 }

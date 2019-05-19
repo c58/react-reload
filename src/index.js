@@ -1,6 +1,5 @@
-// @flow
 import * as React from 'react'
-import shallowEqual from 'shallow-equal/objects'
+import shallowEqual from 'shallowequal'
 import createReactContext from 'create-react-context'
 
 // Utils

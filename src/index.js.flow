@@ -1,4 +1,5 @@
 // @flow
+import * as React from 'react'
 import { type Consumer } from 'create-react-context'
 
 export type GenericActions<A> = A & {
@@ -59,9 +60,13 @@ type DataLoaderResult<D, O, A> = {
   Factory: CreatorOptions<D, O, A>,
 }
 
-declare function createDataLoader<D, O, A>(
+declare export function createDataLoader<D, O, A>(
   createParts: CreatorOptions<D, O, A>,
   createOptions?: CreateOptions<O>
 ): DataLoaderResult<D, O, A>;
+
+declare export function setDefaultErrorNormalizer(normalizer: ((any) => any)): void;
+
+declare export function setDefaultOptionsComparator(comparator: ((a: any, b: any) => boolean)): void;
 
 export default createDataLoader

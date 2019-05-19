@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import createLoader from './'
+import createLoader from '../'
 
 const flushPromises = () => new Promise(resolve => setImmediate(resolve))
 
