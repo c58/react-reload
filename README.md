@@ -122,7 +122,7 @@ const Page = () => (
 
 ## How to reload/refresh the data?
 
-When `options` prop changed the data reloaded automatically. Data loader check
+When `options` prop changed the data will be reloaded automatically. Data loader check
 previous and new options object with `shallowEqual` on `componentDidUpdate`,
 and if it is different, then it reload the data.
 
