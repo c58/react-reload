@@ -17,6 +17,7 @@ module.exports = {
     '@babel/preset-react'
   ],
   plugins: [
+    'babel-plugin-transform-async-to-promises',
     '@babel/proposal-object-rest-spread',
     '@babel/plugin-proposal-class-properties',
     [
