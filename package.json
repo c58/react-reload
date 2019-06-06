@@ -67,7 +67,7 @@
     "babel-plugin-transform-async-to-promises": "^0.8.11",
     "cross-env": "^5.2.0",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.13.2",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-flowtype": "^3.9.1",
