@@ -79,7 +79,7 @@
     "flow-typed": "^2.5.2",
     "glob": "^7.1.4",
     "jest": "^24.8.0",
-    "prettier": "^1.17.1",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "release-it": "^12.2.2",
