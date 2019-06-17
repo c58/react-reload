@@ -41,7 +41,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "create-react-context": "^0.2.3",
+    "create-react-context": "^0.3.0",
     "shallowequal": "^1.1.0"
   },
   "peerDependencies": {
