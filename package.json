@@ -85,7 +85,7 @@
     "release-it": "^12.3.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.15.6",
-    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-copy": "^3.0.0"
   },
   "npmName": "react-reload",
