@@ -82,7 +82,7 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "release-it": "^12.3.5",
+    "release-it": "^12.3.6",
     "rimraf": "^2.7.1",
     "rollup": "^1.19.4",
     "rollup-plugin-babel": "^4.3.3",
