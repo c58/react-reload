@@ -14,10 +14,21 @@ const setup = options => {
     }
   }
   const loaderFunc = jest.fn(() => loaderObj)
-  const { Loader, Consumer } = createLoader(loaderFunc, options)
+  const rawLoader = createLoader(loaderFunc, options)
+  const { Loader, Consumer } = rawLoader
+
   const render = props =>
     mount(<Loader {...props}>{props?.children || renderProp}</Loader>)
-  return { Loader, Consumer, loaderObj, loaderFunc, renderProp, render }
+
+  return {
+    Context: rawLoader,
+    Loader,
+    Consumer,
+    loaderObj,
+    loaderFunc,
+    renderProp,
+    render
+  }
 }
 
 describe('React-Reload', () => {
@@ -438,6 +449,57 @@ describe('React-Reload', () => {
           <Consumer>{consumer}</Consumer>
         </div>
       )
+    })
+
+    expect(consumer).toHaveBeenCalledTimes(2)
+    expect(consumer).toHaveBeenNthCalledWith(
+      1,
+      expect.objectContaining({
+        actions: {
+          retry: expect.any(Function),
+          customAction: expect.any(Function)
+        },
+        state: {
+          data: null,
+          options: { a: 1 },
+          loading: true,
+          error: null,
+          rawError: null,
+          loadedOnce: false
+        }
+      })
+    )
+    expect(consumer).toHaveBeenNthCalledWith(
+      2,
+      expect.objectContaining({
+        actions: {
+          retry: expect.any(Function),
+          customAction: expect.any(Function)
+        },
+        state: {
+          data: 'test',
+          options: { a: 1 },
+          loading: false,
+          error: null,
+          rawError: null,
+          loadedOnce: true
+        }
+      })
+    )
+  })
+
+  it('should work with useContext', () => {
+    const consumer = jest.fn(() => null)
+    const { render, loaderObj, Context } = setup()
+    loaderObj.loader.mockReturnValue('test')
+
+    const TestComponent = () => {
+      const data = React.useContext(Context)
+      return consumer(data)
+    }
+    render({
+      options: { a: 1 },
+      children: <TestComponent />
     })
 
     expect(consumer).toHaveBeenCalledTimes(2)

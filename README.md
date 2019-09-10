@@ -64,22 +64,22 @@ export default createDataLoder(state => {
 ## How to use a loader without Redux? (non-controlled mode)
 
 ```js
+import React from 'react'
 import PriceUpdateData from './PriceUpdateData'
 
-const SomeDeepComponent = () => (
-  <div>
-    <PriceUpdateData.Consumer>
-      {({ state, actions }) => (
-        <div>
-          <h1>Some data: {state.data}</h1>
-          <div>Loading: {`${state.loading}`}</div>
-          <div>Error: {`${state.error}`}</div>
-          <button onClick={actions.retry}>Retry</button>
-        </div>
-      )}
-    </PriceUpdateData.Consumer>
-  </div>
-)
+const SomeDeepComponent = () => {
+  const { state, actions } = React.useContext(PriceUpdateData)
+  return (
+    <div>
+      <div>
+        <h1>Some data: {state.data}</h1>
+        <div>Loading: {`${state.loading}`}</div>
+        <div>Error: {`${state.error}`}</div>
+        <button onClick={actions.retry}>Retry</button>
+      </div>
+    </div>
+  )
+}
 
 // That is a non-controlled mode of the loader, where the state stored
 // in the React component's state of the loader
