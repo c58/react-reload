@@ -343,7 +343,7 @@ describe('React-Reload', () => {
   })
 
   it('should set empty state on unmount on controlled mode if enabled', async () => {
-    jest.useFakeTimers();
+    jest.useFakeTimers()
     const onStateUpdate = jest.fn()
     const { render, loaderObj } = setup()
     loaderObj.loader.mockReturnValue('test')
@@ -354,7 +354,7 @@ describe('React-Reload', () => {
       onStateUpdate
     })
     wrapper.unmount()
-    jest.runOnlyPendingTimers();
+    jest.runOnlyPendingTimers()
     await flushPromises()
 
     expect(onStateUpdate).toHaveBeenCalledTimes(2)
