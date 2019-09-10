@@ -5,7 +5,7 @@ import createLoader from '../'
 const flushPromises = () => new Promise(resolve => setImmediate(resolve))
 
 const setup = options => {
-  const renderProp = jest.fn()
+  const renderProp = jest.fn(() => <span>hello</span>)
   const loaderObj = {
     cleanup: jest.fn(),
     loader: jest.fn(),
@@ -33,7 +33,6 @@ const setup = options => {
 
 describe('React-Reload', () => {
   beforeEach(() => {
-    global.setTimeout = func => func()
     jest.clearAllMocks()
   })
 
@@ -344,6 +343,7 @@ describe('React-Reload', () => {
   })
 
   it('should set empty state on unmount on controlled mode if enabled', async () => {
+    jest.useFakeTimers()
     const onStateUpdate = jest.fn()
     const { render, loaderObj } = setup()
     loaderObj.loader.mockReturnValue('test')
@@ -354,6 +354,7 @@ describe('React-Reload', () => {
       onStateUpdate
     })
     wrapper.unmount()
+    jest.runOnlyPendingTimers()
     await flushPromises()
 
     expect(onStateUpdate).toHaveBeenCalledTimes(2)
