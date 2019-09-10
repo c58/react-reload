@@ -1,6 +1,6 @@
 {
   "name": "react-reload",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Yet another declarative data loader for React",
   "license": "MIT",
   "repository": "github:c58/react-reload",
