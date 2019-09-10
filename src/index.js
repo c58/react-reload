@@ -276,11 +276,9 @@ export function createDataLoader(createParts, createOptions) {
     }
   }
 
-  return {
-    Loader: DataLoader,
-    Consumer: DataContext.Consumer,
-    Factory: createParts
-  }
+  DataContext.Loader = DataLoader
+  DataContext.Factory = createParts
+  return DataContext
 }
 
 export default createDataLoader
