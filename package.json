@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
-    "@babel/node": "^7.6.0",
+    "@babel/node": "^7.6.1",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
@@ -84,7 +84,7 @@
     "react-dom": "^16.9.0",
     "release-it": "^12.3.6",
     "rimraf": "^2.7.1",
-    "rollup": "^1.21.2",
+    "rollup": "^1.21.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-copy": "^3.1.0"
   },
